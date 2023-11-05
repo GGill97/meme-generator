@@ -4,20 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-
     <title>Meme Generator</title>
   </head>
   <body>
     <h1>Meme Generator</h1>
     <div class="meme-generator">
-      <label> Image URL </label>
+      <label for="imageInput"> Image URL </label>
       <input type="url" id="imageInput" />
-      <label>Top Text</label>
+      <label for="topTextInput">Top Text</label>
       <input type="text" id="topTextInput" />
-      <label>Text on Bottom</label>
+      <label for="bottomTextInput">Bottom Text</label>
       <input type="text" id="bottomTextInput" />
-      <button id="addMeme">Add Meme</button>
+      <button id="addMemeButton">Add Meme</button>
     </div>
+    <div class="meme-container"></div>
     <script src="script.js"></script>
   </body>
 </html>

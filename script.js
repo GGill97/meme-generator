@@ -1,19 +1,28 @@
 const imageInput = document.querySelector("#imageInput");
 const topTextInput = document.querySelector("#topTextInput");
-const bottomTextInput = document.querySelector("#bottonTextInput");
-const addMemebutton = document.querySelector("#addMeme");
+const bottomTextInput = document.querySelector("#bottomTextInput");
+const addMemeButton = document.querySelector("#addMemeButton");
 
 // event listener for the "Add meme" button
-addMemebutton.addEventListener("click", function () {
+addMemeButton.addEventListener("click", function () {
   const memeContainer = document.createElement("div");
   memeContainer.classList.add("meme-container");
+
+  // make sure all fields are filled
+  if (
+    imageInput.value === "" ||
+    topTextInput.value === "" ||
+    bottomTextInput.value === ""
+  ) {
+    alert("Please fill all fields");
+    return;
+  }
 
   //create an image element
   const memeImage = document.createElement("img");
   memeImage.src = imageInput.value;
 
   //create top text element
-
   const topText = document.createElement("div");
   topText.classList.add("top-text");
   topText.innerText = topTextInput.value;
@@ -23,8 +32,15 @@ addMemebutton.addEventListener("click", function () {
   bottomText.classList.add("bottom-text");
   bottomText.innerText = bottomTextInput.value;
 
-  //append
+  // button to delete meme
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "Delete";
+  deleteButton.addEventListener("click", function () {
+    memeContainer.remove();
+  });
 
+  //append
+  memeContainer.appendChild(deleteButton);
   memeContainer.appendChild(memeImage);
   memeContainer.appendChild(topText);
   memeContainer.appendChild(bottomText);
